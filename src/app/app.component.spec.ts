@@ -1,14 +1,16 @@
-import { TestBed } from '@angular/core/testing'
+import { TestBed, async } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
+import { RouterOutlet } from '@angular/router'
 import { AppComponent } from './app.component'
+import { By } from '@angular/platform-browser'
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [AppComponent]
     }).compileComponents()
-  })
+  }))
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent)
@@ -16,18 +18,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy()
   })
 
-  it(`should have as title 'jobs-app'`, () => {
+  it('should have router outlet', () => {
     const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.componentInstance
-    expect(app.title).toEqual('jobs-app')
-  })
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    fixture.detectChanges()
-    const compiled = fixture.nativeElement as HTMLElement
-    expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'jobs-app app is running!'
+    const debugElement = fixture.debugElement.queryAll(
+      By.directive(RouterOutlet)
     )
+    expect(debugElement.length).toBe(1)
   })
 })

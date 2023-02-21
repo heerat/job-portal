@@ -1,0 +1,54 @@
+<section class="d-flex justify-content-between my-3">
+  <h1>Jobs</h1>
+  <button class="btn btn-dark" routerLink="/jobs/new">Create Job</button>
+</section>
+<section class="table-responsive" *ngIf="jobs.length !== 0; else noData">
+  <table class="table table-secondary table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Start Date</th>
+        <th>Close Date</th>
+        <th>Experienced</th>
+        <th>Openings</th>
+        <th>Notes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of jobs">
+        <td>{{ job.title }}</td>
+        <td>{{ job.startDate }}</td>
+        <td>{{ job.closeDate }}</td>
+        <td>
+          <div
+            class="text-center"
+            [ngClass]="
+              job.isExperienceRequired ? 'icon-checkmark' : 'icon-cross'
+            "
+          ></div>
+        </td>
+        <td>
+          <div class="text-end">{{ job.numberOfOpenings }}</div>
+        </td>
+        <td>{{ job.notes }}</td>
+        <td>
+          <span
+            class="icon-eye me-2"
+            role="button"
+            [routerLink]="'/jobs/' + job.id"
+          ></span>
+          <span
+            class="icon-pencil me-2"
+            role="button"
+            [routerLink]="'/jobs/edit/' + job.id"
+          ></span>
+          <span class="icon-bin" role="button" (click)="open(job)"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<ng-template #noData>
+  <section class="text-center">No Job Data</section>
+</ng-template>

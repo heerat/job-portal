@@ -14,7 +14,7 @@
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "json:server": "json-server --watch db.json"
+    "json:server": "json-server --host 127.0.0.1  --watch db.json --port 3000"
   },
   "private": true,
   "dependencies": {
