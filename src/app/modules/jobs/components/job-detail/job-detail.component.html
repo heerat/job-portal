@@ -1,0 +1,22 @@
+<h1>
+  <a appBackButton class="btn btn-outline-dark me-3">
+    <div class="icon-arrow-left2"></div>
+  </a>
+  Job Details
+</h1>
+<section class="row" *ngIf="jobDetails">
+  <p class="col-12 col-md-3">Title:&nbsp;</p>
+  <p class="col-12 col-md-9">{{ jobDetails.title }}</p>
+  <p class="col-12 col-md-3">Job Number:&nbsp;</p>
+  <p class="col-12 col-md-9">{{ jobDetails.number }}</p>
+  <p class="col-12 col-md-3">Start Date:&nbsp;</p>
+  <p class="col-12 col-md-9">{{ jobDetails.startDate }}</p>
+  <p class="col-12 col-md-3">Close Date:&nbsp;</p>
+  <p class="col-12 col-md-9">{{ jobDetails.closeDate }}</p>
+  <p class="col-12 col-md-3">Experience:&nbsp;</p>
+  <p class="col-12 col-md-9">
+    {{ jobDetails.isExperienceRequired ? 'Required' : 'Not Required' }}
+  </p>
+  <p class="col-12 col-md-3">Notes:&nbsp;</p>
+  <p class="col-12 col-md-9">{{ jobDetails.notes }}</p>
+</section>

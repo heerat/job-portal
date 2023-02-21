@@ -1,0 +1,33 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@angular-eslint/recommended",
+    "plugin:@angular-eslint/template/process-inline-templates",
+    "prettier"
+  ],
+  "plugins": ["@typescript-eslint", "@angular-eslint"],
+  "rules": {
+    "prefer-template": "error",
+    "object-shorthand": "error",
+    "cypress/no-assigning-return-values": "error",
+    "cypress/no-assertion-after-cy-visit": "error",
+    "cypress/no-async-tests": "error",
+    "cypress/no-force": "error",
+    "cypress/no-unnecessary-waiting": "error",
+    "cypress/assertion-before-screenshot": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["*.component.html"],
+      "parser": "@angular-eslint/template-parser",
+      "plugins": ["@angular-eslint/template"],
+      "rules": {}
+    },
+    {
+      "files": ["*.ts"],
+      "extends": ["plugin:@ngrx/recommended"]
+    }
+  ]
+}

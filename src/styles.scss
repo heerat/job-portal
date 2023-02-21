@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/scss/bootstrap';
+@import './assets/styles/fonts.scss';
+
+app-job-form .is-invalid {
+  .input-group {
+    input,
+    button {
+      border-color: #dc3545;
+    }
+  }
+}
