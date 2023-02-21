@@ -5,7 +5,7 @@ describe('Jobs module', () => {
         .intercept(
           {
             method: 'GET', // Route all GET requests
-            url: 'http://127.0.0.1:3000/jobs' // that have a URL that matches '/users/*'
+            url: `http://127.0.0.1:3000/jobs` // that have a URL that matches '/users/*'
           },
           [{ title: 'Test Job' }] // and force the response to be: []
         )

@@ -5,9 +5,10 @@ import {
 } from '@angular/common/http/testing'
 import { JobsService } from './jobs.service'
 import { Job } from '../model/jobs.model'
+import { environment } from 'src/environment/environment'
 
 describe('JobsService', () => {
-  const baseUrl = 'http://127.0.0.1:3000'
+  const baseUrl = environment.baseUrl
   let service: JobsService
   let httpMock: HttpTestingController
 
